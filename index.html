@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ແນະນຳສະກິລ Free Fire ຕາມແນວທາງ</title>
+    <style>
+        body {
+            font-family: 'Phetsarath OT', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #38bdf8;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+        select {
+            background: #334155;
+            color: #fff;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #334155;
+            border-radius: 8px;
+            display: none;
+        }
+        .result h3 {
+            color: #facc15;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🔥 ຈັດຄອມໂບສະກິລ Free Fire 🔥</h1>
+    
+    <label for="playstyle">ເລືອກແນວທາງການຫຼິ້ນ:</label>
+    <select id="playstyle">
+        <option value="rush">สายບຸກ (Rusher / ໄຟທ໌ມັສ)</option>
+        <option value="support">สายຊັບພອດ (Support / ຕັ້ງໄອວໍ-ຊ່ວຍໝູ່)</option>
+        <option value="sniper">สายຍິງໄກ (Sniper / ດັກຊຸມ)</option>
+    </select>
+
+    <button onclick="recommendSkill()">ແນະນຳສະກິລ</button>
+
+    <div id="resultBox" class="result">
+        <h3 id="resTitle"></h3>
+        <p id="resDesc"></p>
+    </div>
+</div>
+
+<script>
+    function recommendSkill() {
+        const style = document.getElementById('playstyle').value;
+        const resBox = document.getElementById('resultBox');
+        const resTitle = document.getElementById('resTitle');
+        const resDesc = document.getElementById('resDesc');
+
+        let title = "";
+        let desc = "";
+
+        if (style === 'rush') {
+            title = "⚔️ ຄອມໂບສຳລັບ: สายບຸກ (Rusher)";
+            desc = "• <b>Alok ຫຼື Tatsuya:</b> ເພີ່ມຄວາມໄວໃນການເຄື່ອນທີ່ ແລະ ຟື້ນຟູເລືອດ.<br>• <b>Jota:</b> ຍິງໂດນ/ດາວແລ້ວໄດ້ເລືອດຄືນ.<br>• <b>Kelly:</b> วิ่งໄວຂຶ້ນ ຊ່ວຍໃນການໂມບິລິຕີ້.<br>• <b>Hayato:</b> ເຈາະເກາະແຮງຂຶ້ນເວລາເລືອດຫຼຸດ.";
+        } else if (style === 'support') {
+            title = "🛡️ ຄອມໂບສຳລັບ: สายຊັບພອດ (Support)";
+            desc = "• <b>Dimitri ຫຼື Homer:</b> ສ້າງວົງຟື້ນຟູເລືອດໃຫ້ທີມ ຫຼື ປ້ຳໝູ່ໄວ.<br>• <b>Thiva:</b> ຊ່ວຍໝູ່ຟື້ນຕົວ (Revive) ໄວຂຶ້ນ ແລະ ໄດ້ເລືອດເພີ່ມ.<br>• <b>Moco:</b> ຊ່ວຍມາກສ໌ຕຳແໜ່ງສັດຕູໃຫ້ເພື່ອນໃນທີມເຫັນ.<br>• <b>Kapella:</b> ຊ່ວຍໃຫ້ການຟື້ນຟູເລືອດ ແລະ ການຊຸບໝູ່ມີປະສິດທິພາບສູງສຸດ.";
+        } else if (style === 'sniper') {
+            title = "🎯 ຄອມໂບສຳລັບ: สายຍິງໄກ (Sniper)";
+            desc = "• <b>Laura:</b> ເພີ່ມຄວາມแม่ນຍໍາເວລາເປີດກ້ອງ (Scope) ສ່ອງ.<br>• <b>Maro:</b> ยິງໄກຍິ່ງແຮງຂຶ້ນ.<br>• <b>Rafael:</b> ເກັບສຽງປືນ Sniper ອັດຕະໂນມັດ ແລະ ສັດຕູຕາຍໄວຂຶ້ນເມື່ອຖືກລົ້ມ.<br>• <b>Alok ຫຼື K:</b> ເພີ່ມເລືອດປະຄອງຕົວເວລາຖືກດັກໂຈມຕີ.";
+        }
+
+        resTitle.innerHTML = title;
+        resDesc.innerHTML = desc;
+        resBox.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
